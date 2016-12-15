@@ -91,16 +91,6 @@ def scrape_2014(url)
   end
 end
 
-terms = %w(2009 2011 2013 2015).map { |y|
-  {
-    id: y,
-    name: "%d-%d" % [y, y.to_i+2],
-    start_date: y,
-    end_date: y.to_i+2,
-  }
-}
-ScraperWiki.save_sqlite([:id], terms, 'terms')
-
 mems = (
   scrape_2008("https://en.wikipedia.org/wiki/Sark_general_election,_2008") +
   scrape_2010("https://en.wikipedia.org/wiki/Sark_general_election,_2010") +
